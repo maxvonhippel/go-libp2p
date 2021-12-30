@@ -28,6 +28,7 @@ var (
 	pstoreType    = reflect.TypeOf((*peerstore.Peerstore)(nil)).Elem()
 	connGaterType = reflect.TypeOf((*connmgr.ConnectionGater)(nil)).Elem()
 	upgraderType  = reflect.TypeOf((*transport.Upgrader)(nil)).Elem()
+	rcmgrType     = reflect.TypeOf((*network.ResourceManager)(nil)).Elem()
 
 	// concrete types
 	peerIDType = reflect.TypeOf((peer.ID)(""))
@@ -35,26 +36,35 @@ var (
 )
 
 var argTypes = map[reflect.Type]constructor{
-	upgraderType: func(_ host.Host, u transport.Upgrader, _ pnet.PSK, _ connmgr.ConnectionGater) interface{} { return u },
-	hostType:     func(h host.Host, _ transport.Upgrader, _ pnet.PSK, _ connmgr.ConnectionGater) interface{} { return h },
-	networkType: func(h host.Host, _ transport.Upgrader, _ pnet.PSK, _ connmgr.ConnectionGater) interface{} {
+	upgraderType: func(_ host.Host, u transport.Upgrader, _ pnet.PSK, _ connmgr.ConnectionGater, _ network.ResourceManager) interface{} {
+		return u
+	},
+	hostType: func(h host.Host, _ transport.Upgrader, _ pnet.PSK, _ connmgr.ConnectionGater, _ network.ResourceManager) interface{} {
+		return h
+	},
+	networkType: func(h host.Host, _ transport.Upgrader, _ pnet.PSK, _ connmgr.ConnectionGater, _ network.ResourceManager) interface{} {
 		return h.Network()
 	},
-	pskType: func(_ host.Host, _ transport.Upgrader, psk pnet.PSK, _ connmgr.ConnectionGater) interface{} {
+	pskType: func(_ host.Host, _ transport.Upgrader, psk pnet.PSK, _ connmgr.ConnectionGater, _ network.ResourceManager) interface{} {
 		return psk
 	},
-	connGaterType: func(_ host.Host, _ transport.Upgrader, _ pnet.PSK, cg connmgr.ConnectionGater) interface{} { return cg },
-	peerIDType: func(h host.Host, _ transport.Upgrader, _ pnet.PSK, _ connmgr.ConnectionGater) interface{} {
+	connGaterType: func(_ host.Host, _ transport.Upgrader, _ pnet.PSK, cg connmgr.ConnectionGater, _ network.ResourceManager) interface{} {
+		return cg
+	},
+	peerIDType: func(h host.Host, _ transport.Upgrader, _ pnet.PSK, _ connmgr.ConnectionGater, _ network.ResourceManager) interface{} {
 		return h.ID()
 	},
-	privKeyType: func(h host.Host, _ transport.Upgrader, _ pnet.PSK, _ connmgr.ConnectionGater) interface{} {
+	privKeyType: func(h host.Host, _ transport.Upgrader, _ pnet.PSK, _ connmgr.ConnectionGater, _ network.ResourceManager) interface{} {
 		return h.Peerstore().PrivKey(h.ID())
 	},
-	pubKeyType: func(h host.Host, _ transport.Upgrader, _ pnet.PSK, _ connmgr.ConnectionGater) interface{} {
+	pubKeyType: func(h host.Host, _ transport.Upgrader, _ pnet.PSK, _ connmgr.ConnectionGater, _ network.ResourceManager) interface{} {
 		return h.Peerstore().PubKey(h.ID())
 	},
-	pstoreType: func(h host.Host, _ transport.Upgrader, _ pnet.PSK, _ connmgr.ConnectionGater) interface{} {
+	pstoreType: func(h host.Host, _ transport.Upgrader, _ pnet.PSK, _ connmgr.ConnectionGater, _ network.ResourceManager) interface{} {
 		return h.Peerstore()
+	},
+	rcmgrType: func(_ host.Host, _ transport.Upgrader, _ pnet.PSK, _ connmgr.ConnectionGater, rcmgr network.ResourceManager) interface{} {
+		return rcmgr
 	},
 }
 
