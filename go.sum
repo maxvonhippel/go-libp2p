@@ -433,8 +433,8 @@ github.com/libp2p/go-libp2p-quic-transport v0.13.0/go.mod h1:39/ZWJ1TW/jx1iFkKzz
 github.com/libp2p/go-libp2p-quic-transport v0.15.1-0.20220104132014-daa8e64b8e6b/go.mod h1:YWat3I4j6SdMbxQ0l5p5GhmFfTa+zF20HnASRSBdFdk=
 github.com/libp2p/go-libp2p-quic-transport v0.15.1-0.20220108115653-809bf14dd0e9 h1:vKncWRP2UbfShrpqEdF7a1pkKlU0mdqPFY0bo3q0LuQ=
 github.com/libp2p/go-libp2p-quic-transport v0.15.1-0.20220108115653-809bf14dd0e9/go.mod h1:QgXb66laBD2IR9Jz0nbiK22cd+ywp+6D5TlPS29mNFs=
-github.com/libp2p/go-libp2p-resource-manager v0.0.0-20220109083258-ecd0ec092fe7 h1:cVaHaEekuEybWNIxoxzYDuhqWWxwLZ/O38ht0I7kzx4=
-github.com/libp2p/go-libp2p-resource-manager v0.0.0-20220109083258-ecd0ec092fe7/go.mod h1:xxi7+y2THcJD5mVvhjUJQcNbUq5ahSJ6VehkhSgxN/4=
+github.com/libp2p/go-libp2p-resource-manager v0.0.0-20220111085637-1a55fffe0a53 h1:wJ5k4ShOA5SXQg0YJtY1fEYUZWXMRqvWHkc07yfqZUI=
+github.com/libp2p/go-libp2p-resource-manager v0.0.0-20220111085637-1a55fffe0a53/go.mod h1:ixN9HGHnHyPjEtbBzil3Y9FG+SaZohv1YEwvEJg3zfo=
 github.com/libp2p/go-libp2p-swarm v0.8.0/go.mod h1:sOMp6dPuqco0r0GHTzfVheVBh6UEL0L1lXUZ5ot2Fvc=
 github.com/libp2p/go-libp2p-swarm v0.9.1-0.20220104132952-1894fa82d9a9/go.mod h1:s3UxbgMKgF9Iw84vHI/6Bi2SqzTqakCrQ+BIVVFjYa0=
 github.com/libp2p/go-libp2p-swarm v0.9.1-0.20220109140334-b7e99ba17dba h1:mBLJU5N89HbC3uiSIa8J73+K1FkSzOGZzl6/kN7RzCw=
